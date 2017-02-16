@@ -2,7 +2,7 @@ FROM buildpack-deps:jessie
 
 # Versions of Nginx and nginx-rtmp-module to use
 ENV NGINX_VERSION nginx-1.11.3
-ENV NGINX_RTMP_MODULE_VERSION 1.1.9
+ENV NGINX_RTMP_MODULE_VERSION 1.1.10
 
 # Install dependencies
 RUN apt-get update && \
@@ -18,7 +18,7 @@ RUN mkdir -p /tmp/build/nginx && \
 # Download and decompress RTMP module
 RUN mkdir -p /tmp/build/nginx-rtmp-module && \
     cd /tmp/build/nginx-rtmp-module && \
-    wget -O nginx-rtmp-module-${NGINX_RTMP_MODULE_VERSION}.tar.gz https://github.com/arut/nginx-rtmp-module/archive/v${NGINX_RTMP_MODULE_VERSION}.tar.gz && \
+    wget -O nginx-rtmp-module-${NGINX_RTMP_MODULE_VERSION}.tar.gz https://github.com/justinoverton/nginx-rtmp-module/archive/v${NGINX_RTMP_MODULE_VERSION}.tar.gz && \
     tar -zxf nginx-rtmp-module-${NGINX_RTMP_MODULE_VERSION}.tar.gz && \
     cd nginx-rtmp-module-${NGINX_RTMP_MODULE_VERSION}
 
